@@ -91,12 +91,14 @@ public class LivreDAOJDBCSQLImpl2 implements LivreDAO {
         return listing;
     }
 
-    public Livre lookupBookById( Long id ) {
+    public Livre lookupBookById( String id ) {
         Connection connection = SingletonConnection.getConnection();
         Livre l = null;
+        Long idLong = Long.parseLong( id );
         try {
             PreparedStatement ps = connection.prepareStatement( "select * from book where id like ?" );
-            ps.setLong( 1, id );
+            ps.setLong( 1, idLong );
+
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
                 l = new Livre();
@@ -154,6 +156,33 @@ public class LivreDAOJDBCSQLImpl2 implements LivreDAO {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public List<Livre> lookupBookByMc( String mc ) {
+        List<Livre> livres = new ArrayList<Livre>();
+        Livre l = null;
+        Connection conn = SingletonConnection.getConnection();
+
+        try {
+            PreparedStatement ps = conn.prepareStatement( "select * from book where description like ?" );
+            ps.setString( 1, "%" + mc + "%" );
+            ResultSet rs = ps.executeQuery();
+            while ( rs.next() ) {
+                l = new Livre();
+                l.setId( (int) rs.getLong( "id" ) );
+                l.setTitle( rs.getString( "Title" ) );
+                l.setDescription( rs.getString( "description" ) );
+                l.setPubDate( rs.getDate( "pubDate" ) );
+                l.setPrice( rs.getDouble( "price" ) );
+                l.setAuteur( rs.getString( "auteur" ) );
+                livres.add( l );
+            }
+            ps.close();
+        } catch ( SQLException e ) {
+            e.printStackTrace();
+        }
+        return livres;
     }
 
 }

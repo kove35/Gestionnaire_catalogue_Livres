@@ -16,6 +16,9 @@ public class GestionnaireCommandes {
         commandes.put( "/editer", new CommandeEditerLivre() );
         commandes.put( "/updateBook", new CommandeUpdateLivre() );
         commandes.put( "/deleteBook", new CommandeSupprimerLivre() );
+        commandes.put( "/confirmationDelete", new CommandeconfirmationDelete() );
+        commandes.put( "/rechercherParMc", new CommandeRechercherParMc() );
+        commandes.put( "/confirmationRechercherParMc", new CommandeConfirmationRechercherParMc() );
     }
 
     public static Commande getCommande( String nom ) {

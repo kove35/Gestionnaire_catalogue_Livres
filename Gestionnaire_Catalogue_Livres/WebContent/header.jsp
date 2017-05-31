@@ -19,7 +19,7 @@
 		<div class="navbar navbar-default">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="${pageContext.request.contextPath}/book">Home</a>
+					<a href="${pageContext.request.contextPath}/book">Accueil</a>
 				</li>
 				<li>
 					<a href="${pageContext.request.contextPath}/ajouter">Ajouter un livre</a>
@@ -31,11 +31,9 @@
 					<a href="${pageContext.request.contextPath}/book">Rendre un livre</a>
 				</li>
 				<li>
-					<a href="${pageContext.request.contextPath}/book">Recherche un livre par mot clé</a>
+					<a href="${pageContext.request.contextPath}/rechercherParMc">Rechercher un livre par mot clé</a>
 				</li>
-				<li>
-					<a href="${pageContext.request.contextPath}/book">Supprimer un livre</a>
-				</li>
+				
 			</ul>
 		</div>
 	</body>

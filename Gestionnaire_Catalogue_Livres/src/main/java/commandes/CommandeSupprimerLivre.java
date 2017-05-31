@@ -12,7 +12,7 @@ public class CommandeSupprimerLivre extends Commande {
 
     @Override
     public Action executerAction( HttpServletRequest req ) {
-
+        // req.setAttribute( "idSupprimer", req.getParameter( "id" ) );
         dao.removeBook( req.getParameter( "id" ) );
         return new Action( "/book", false );
     }

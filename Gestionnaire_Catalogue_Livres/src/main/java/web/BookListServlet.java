@@ -16,7 +16,8 @@ import commandes.Commande;
 import commandes.GestionnaireCommandes;
 import dao.LivreDAO;
 
-@WebServlet( { "/book", "/ajouter", "/sauvegarder", "/editer", "/deleteBook", "/updateBook" } )
+@WebServlet( { "/book", "/ajouter", "/sauvegarder", "/editer", "/deleteBook", "/updateBook", "/confirmationDelete",
+        "/rechercherParMc", "/confirmationRechercherParMc" } )
 public class BookListServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

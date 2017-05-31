@@ -5,11 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<title>book-list-content.jsp</title>
+<title>Resultat recherche par mot clé</title>
 </head>
 <body>
-
-<div>
+	<div>
 	<table class="table table-striped">
 		<tr>
 			<th>CODE</th>
@@ -28,15 +27,12 @@
 				<td>${livre.price}</td>
 				<td>${livre.pubDate}</td>
 				<td>
-					<a href="${pageContext.request.contextPath}/editer?id=${livre.id}" >Editer</a>
+					<a href="${pageContext.request.contextPath}/Book" >Home</a>
 				</td>
-				<td>
-					<%-- <a href="${pageContext.request.contextPath}/deleteBook?id=${livre.id}">Supprimer</a> --%>
-					<a href="${pageContext.request.contextPath}/confirmationDelete?id=${livre.id}">Supprimer</a>
-				</td>
+				
 			</tr>
 		</c:forEach>
 	</table>
-</div>		
+</div>	
 </body>
 </html>

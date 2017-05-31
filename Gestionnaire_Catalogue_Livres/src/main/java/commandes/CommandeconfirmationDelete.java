@@ -4,21 +4,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import beans.Livre;
 
-public class CommandeEditerLivre extends Commande {
+public class CommandeconfirmationDelete extends Commande {
 
     @Override
     public String getNomCommande() {
 
-        return "EditerLivre";
+        return "confirmationDelete";
     }
 
     @Override
     public Action executerAction( HttpServletRequest req ) {
         Livre l = dao.lookupBookById( req.getParameter( "id" ) );
         req.setAttribute( "livre", l );
-        Action action = new Action( "editLivre.jsp", false );
 
-        return action;
+        return new Action( "/confirmationDelete.jsp?idsupprimer=id", false );
     }
 
 }

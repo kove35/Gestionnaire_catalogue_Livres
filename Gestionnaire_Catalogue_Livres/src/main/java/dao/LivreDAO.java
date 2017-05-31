@@ -6,15 +6,17 @@ import beans.Livre;
 
 public interface LivreDAO {
 
-    Livre addBook( String title, String description, Double price, String pubDate, String auteur );
+    public Livre addBook( String title, String description, Double price, String pubDate, String auteur );
 
     public List<Livre> listBooks();
 
-    Livre lookupBookById( Long id );
+    public Livre lookupBookById( String id );
 
-    void updateBook( Livre l );
+    public void updateBook( Livre l );
 
-    void removeBook( String id );
+    public void removeBook( String id );
+
+    public List<Livre> lookupBookByMc( String mc );
 
     // public void saveBook( String id, HttpServletRequest request );
 

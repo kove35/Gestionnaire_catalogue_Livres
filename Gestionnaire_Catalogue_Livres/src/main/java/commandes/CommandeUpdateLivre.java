@@ -14,8 +14,8 @@ public class CommandeUpdateLivre extends Commande {
 
     @Override
     public Action executerAction( HttpServletRequest req ) {
-        Long id = Long.parseLong( req.getParameter( "id" ) );
-        Livre l = dao.lookupBookById( id );
+        // Long id = Long.parseLong( req.getParameter( "id" ) );
+        Livre l = dao.lookupBookById( req.getParameter( "id" ) );
         dao.updateBook( l );
         return new Action( "/book", false );
     }
